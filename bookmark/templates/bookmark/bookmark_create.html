@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Bookmark Add
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %} <!--해킹 방지, form태그 사용시 필수-->
+    {{ form.as_p }} <!--이 폼은 p태그 형태로 나타내어라-->
+    <input type="submit" value="Add" class="btn btn-info btn-sm">
+</form>
+{% endblock %}

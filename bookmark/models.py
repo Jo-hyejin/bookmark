@@ -1,0 +1,13 @@
+from django.db import models
+from django.urls import reverse
+
+class Bookmark(models.Model):
+    site_name = models.CharField(max_length=100)
+    url = models.URLField('Site URL')
+
+    def get_absolute_url(self):
+        return reverse('detail', args=[str(self.id)])
+
+    def __str__(self):  #관리자 페이지 표시
+        return "이름: " + self.site_name + ", 주소: " + self.url
+    
